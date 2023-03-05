@@ -4,7 +4,7 @@ import reviews
 import openai
 import os
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def read_and_save_json():
     # list all json files in data folder
@@ -34,10 +34,10 @@ def read_and_save_json():
 
 
 def main():
-    #dal.create_reviews_table()
-    #read_and_save_json()
+    dal.create_reviews_table()
+    read_and_save_json()
     pass
-    #print(reviews.get_positives_and_negatives("amazon", "caraway"))
+    print(reviews.get_positives_and_negatives("youtube", "caraway"))
 
 if __name__ == "__main__":
     main()
