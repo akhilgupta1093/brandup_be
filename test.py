@@ -5,7 +5,7 @@ import openai
 import os
 from dotenv import load_dotenv, find_dotenv
 
-openai.api_key = "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"
+openai.api_key = ""
 
 def read_and_save_json():
     # list all json files in data folder
