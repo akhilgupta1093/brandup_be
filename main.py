@@ -5,7 +5,7 @@ import reviews
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-openai.api_key = "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"
+openai.api_key = ""
 
 app = FastAPI()
 origins = [
@@ -29,3 +29,8 @@ def read_root():
 @app.get("/reviews/{type}/{brand}")
 def get_reviews(type: str, brand: str):
     return reviews.get_positives_and_negatives(type, brand)
+
+# sentiment analysis for a brand
+@app.get("/sentiment/{brand}")
+def get_sentiment(brand: str):
+    return reviews.get_sentiment(brand)

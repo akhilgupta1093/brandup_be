@@ -21,4 +21,8 @@ def get_reviews_by_type_brand_and_date(type, brand, date):
     cur.execute("SELECT * FROM reviews WHERE type=? AND brand=? AND date=?", (type, brand, date))
     return cur.fetchall()
 
+def get_reviews_by_brand_and_date(brand, date):
+    cur.execute("SELECT * FROM reviews WHERE brand=? AND date=?", (brand, date))
+    return cur.fetchall()
+
 

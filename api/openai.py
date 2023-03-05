@@ -8,8 +8,10 @@ def get_chatgpt_response(messages, temperature=0):
         model=MODEL,
         messages=messages,
         temperature=temperature,
+        max_tokens=100,
     )
-    return response
+    # only show the text completion
+    return response["choices"][0]["message"]["content"]
 
 def add_message(messages, role, content):
     messages.append({

@@ -1,5 +1,6 @@
 import api.openai as oa
 import dal
+import sentiment_analysis
 
 date = "2021-01-01"
 
@@ -19,3 +20,12 @@ def get_positives_and_negatives(type, brand):
     
     response = oa.get_chatgpt_response(messages)
     return response
+
+def get_sentiment(brand):
+    reviews = dal.get_reviews_by_brand_and_date(brand, date)
+    # filter out reviews that are too short
+    reviews = [review[2] for review in reviews if len(review[2]) > 20]
+
+    sentiment = sentiment_analysis.get_aggregated_sentiment(reviews)
+
+    return sentiment
