@@ -3,8 +3,8 @@ import dal
 
 date = "2021-01-01"
 
-def get_positives_and_negatives(type):
-    reviews = dal.get_reviews_by_type_and_date(type, date)
+def get_positives_and_negatives(type, brand):
+    reviews = dal.get_reviews_by_type_brand_and_date(type, brand, date)
 
     messages = oa.add_system_message("You are a marketing assistant. You are given a list of reviews and you need to find the positives and negatives of the product. You reply with JSON messages with the following format: {\"positives\": [\"positive1\", \"positive2\"], \"negatives\": [\"negative1\", \"negative2\"]}.")
     for review in reviews:

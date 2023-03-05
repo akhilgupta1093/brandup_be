@@ -1,12 +1,11 @@
 import openai
 import os
-from dotenv import load_dotenv, find_dotenv
 import reviews
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-openai.api_key = ""
+openai.api_key = "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"
 
 app = FastAPI()
 origins = [
@@ -27,6 +26,6 @@ app.add_middleware(
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/reviews/{type}")
-def get_reviews(type: str):
-    return reviews.get_positives_and_negatives(type)
+@app.get("/reviews/{type}/{brand}")
+def get_reviews(type: str, brand: str):
+    return reviews.get_positives_and_negatives(type, brand)
