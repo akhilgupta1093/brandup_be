@@ -10,7 +10,7 @@ def get_positives_and_negatives(type):
     for review in reviews:
         messages = oa.add_user_message(review[2], messages)
     
-    messages = oa.add_assistant_message("Please tell me the positives and negatives of the product.", messages)
+    messages = oa.add_user_message("Please tell me the positives and negatives of the product. You reply with JSON messages with the following format: {\"positives\": [\"positive1\", \"positive2\"], \"negatives\": [\"negative1\", \"negative2\"]}.", messages)
     
     response = oa.get_chatgpt_response(messages)
     return response

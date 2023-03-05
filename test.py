@@ -5,15 +5,24 @@ import openai
 import os
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv())
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = "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"
 
 def read_and_save_json():
-    # read data.json and process it
-    with open("data.json", "r") as f:
-        data = json.load(f)
+    # list all json files in data folder
+    company_dirs = os.listdir("data")
+    # read each file and add it to a list
+    data = []
+    for company in company_dirs:
+        for data in os.listdir("data/{}".format(company)):
+            with open("data/{}".format(data), "r") as f:
+                json_data = json.load(f)
+                data.extend(json.load(f))
+
     # save it to reviews.db
     for d in data:
+        if "review" not in d or "url" not in d:
+            continue
+
         review = d['review']
         url = d['url']
         date = "2021-01-01"
@@ -26,8 +35,7 @@ def main():
     #dal.create_reviews_table()
     #read_and_save_json()
     pass
-    #print(dal.get_reviews_by_type_and_date("amazon", "2021-01-01"))
-    print(reviews.get_positives_and_negatives("amazon"))
+    print(reviews.get_positives_and_negatives("youtube"))
 
 if __name__ == "__main__":
     main()
