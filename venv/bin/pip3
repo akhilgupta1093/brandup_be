@@ -1,4 +1,4 @@
-#!/Users/akhilgupta/Documents/Hackathon/ChatGPT/brandup_be/bin/python3.10
+#!/Users/harsha/workspace/brandup_be/venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys
