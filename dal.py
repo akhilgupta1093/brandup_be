@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect("reviews.db")
+con = sqlite3.connect("reviews.db", check_same_thread=False)
 cur = con.cursor()
 
 # we have a reviews table with type (text), link (text), review (text), extra (json text), date (text)
