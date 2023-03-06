@@ -3,7 +3,7 @@ import openai
 MODEL = "gpt-3.5-turbo"
 
 def get_chatgpt_response(messages, temperature=0):
-    print(messages)
+    #print(messages)
     response = openai.ChatCompletion.create(
         model=MODEL,
         messages=messages,

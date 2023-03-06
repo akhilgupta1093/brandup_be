@@ -4,7 +4,7 @@ import reviews
 import openai
 import os
 
-openai.api_key = ""
+openai.api_key = "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"
 
 def read_and_save_json():
     # list all json files in data folder
@@ -38,7 +38,7 @@ def main():
     #read_and_save_json()
     pass
     #print(reviews.get_positives_and_negatives("youtube", "caraway"))
-    print(reviews.get_sentiment("caraway"))
+    #print(reviews.get_sentiment("caraway"))
 
 if __name__ == "__main__":
     main()
