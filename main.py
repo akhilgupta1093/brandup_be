@@ -5,7 +5,7 @@ import reviews
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 app = FastAPI()
 origins = [

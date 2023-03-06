@@ -4,7 +4,7 @@ import reviews
 import openai
 import os
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def read_and_save_json():
     # list all json files in data folder
